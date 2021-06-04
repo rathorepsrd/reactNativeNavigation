@@ -8,6 +8,6 @@ const Favorites = () => {
     );
 };
 Favorites.navigationOptions = {
-    title: 'Favorites'
+    title: 'Favorites Part'
 };
 export default Favorites;
