@@ -7,7 +7,7 @@ const Feed = props => {
         <View style={{ padding: 40, flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             
             <Text>Book Feed Data</Text>
-            <BookFeed />
+            <BookFeed navigation={props.navigation} />
             <Button
                 title="Read Book"
                 onPress={() => props.navigation.navigate('Book')}

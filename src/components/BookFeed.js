@@ -1,5 +1,6 @@
 import React from 'react';
-import {FlatList, View, Text, StyleSheet } from 'react-native';
+import {FlatList, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import Book from './Book';
 // import styled from 'styled-components/native';
 
 const books = [
@@ -27,14 +28,18 @@ const books = [
     // background-color: #ced0ce;
 // `;
 
-const BookFeed = () => {
+const BookFeed = (props) => {
     return(
         <View>
               <FlatList
                 data={books}
                 keyExtractor={({ id }) => id.toString()}
                 ItemSeparatorComponent={() => <View style={styles.seperator} />}
-                renderItem={({ item }) => <Text style={[styles.itemTitle , styles.item]}>{item.title}</Text>
+                renderItem={({ item }) => <TouchableOpacity
+                    onPress={() =>props.navigation.navigate('Book', {id: item.id})
+                }><Text style={[styles.itemTitle , styles.item]}>
+               <Book item={item} />
+              </Text></TouchableOpacity>
               }
             />
         </View>
